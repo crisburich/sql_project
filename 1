@@ -1,0 +1,17 @@
+
+SELECT A.[PurchaseOrderID]
+      ,A.[PurchaseOrderDetailID]
+	    ,A.[OrderQty]
+	    ,A.[UnitPrice]
+      ,A.[LineTotal]
+  	  ,B.[OrderDate]
+	    ,[OrderSizeCategory] = 
+	  CASE
+	  WHEN [OrderQty] > 500 THEN 'Large'
+	  WHEN [OrderQty] BETWEEN 51 AND 500 THEN 'Medium'
+	  ELSE 'Small'
+	  END
+	  	        
+  FROM [AdventureWorks2019].[Purchasing].[PurchaseOrderDetail] A
+  JOIN [AdventureWorks2019].[Purchasing].[PurchaseOrderHeader] B
+  ON A.[PurchaseOrderID] = B.[PurchaseOrderID]
