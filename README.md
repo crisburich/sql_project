@@ -1,3 +1,3 @@
-# sql_project
+# SQL Projects
 
 Hi! I'm Cris. 
